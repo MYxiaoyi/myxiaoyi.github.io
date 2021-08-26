@@ -1,1 +1,249 @@
-<div>hello world</div>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+			<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+			<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+		<style>
+		nav{
+			margin: 1.25rem;
+			border-radius:0.75rem;
+
+		}
+		.input{
+			margin: auto;
+			width: 37rem;
+			height: 4rem;
+			border-radius: 0.9375rem 0.9375rem 0 0;
+			font-size: 2rem;
+			border:0.0625rem solid #a1a1a1;
+			padding-left: 0.6rem;
+			font-style:italic;
+		}
+		.input1{
+			margin: auto;
+			width: 37rem;
+			margin-top: 15rem;
+			//text-align: center;
+			color: #4c4c4c;
+			border-radius: 0.9375rem 0.9375rem 0 0;
+			box-shadow: 0 8px  30px #888888;
+			
+		}
+		.content{
+			width: 37rem;
+			//background-color: #cccccc;
+			height:4rem;
+			border:0.0025rem solid #a1a1a1;
+			font-size: 20px;
+		}
+		.licontent{
+			list-style-type:none;
+			margin: 0;
+			padding: 0;
+			height:4rem;
+			
+		}
+		.content-ser{
+			float: left;
+			padding-right: 2.5rem;
+			padding-left: 1rem;
+		}
+		.content-data{
+			float: left;
+		}
+		.content-day{
+			float: right;
+			width: 4rem;
+			padding-right: 5.5rem;
+			padding-top: 0.5rem;
+			font-size: 13px;
+		}
+		.btn1{
+			float: right;
+			width: 2rem;
+			height: 3rem;
+			font-size: 20px;
+			padding-top: 0;
+			margin-top: 0;
+			display: none;
+		}
+		
+		.content:hover .btn1{
+			display: block;
+		}
+		.content-style{
+			padding-top: 1rem;
+			color: #4c4c4c;
+		}
+		.content-base{
+			height: 2rem;
+			border:0.015rem solid #a1a1a1;
+			font-size: 0.75rem;
+		}
+
+		.base1{
+			margin: auto;
+			height: 0.225rem;
+			//background-color: #002A80;
+			border:0.015rem solid #a1a1a1;
+			width: 36.5rem;
+		}
+		.base2{
+			margin: auto;
+			height: 0.225rem;
+			//background-color: #002A80;
+			border:0.0015rem solid #a1a1a1;
+			width: 36.1rem;
+		}
+		.base3{
+			margin: auto;
+			
+			height: 0.225rem;
+			//background-color: #002A80;
+			border:0.0015rem solid #a1a1a1;
+			width: 35.7rem;
+		}
+		.content-base-left{
+			float: left;
+			padding-left:0.625rem ;
+		}
+		.content-base-right{
+			float: right;
+			padding-right:0.625rem ;
+		}
+		</style>
+	</head>
+	<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">冯笑一主页</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">记事本</a></li>
+				<li><a href="#">计算器</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						编程语言
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">java</a></li>
+						<li><a href="#">python</a></li>
+						<li><a href="#">C++</a></li>
+						<li class="divider"></li>
+						<li><a href="#">open cv</a></li>
+						<li class="divider"></li>
+						<li><a href="#">另一个分离的链接</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="breadcrumb"style="padding-top: 1.6rem;">
+				<li><a href="#">2021</a></li>
+				<li class="active">十一月</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	
+	<div class="input1">
+		<input class="input" type="text" placeholder="记录生活" v-model="inputvalue" @keyup.enter="add()"/>
+			<div class='content' v-for="(vi,tine) in note">
+				<div class='content-style'>
+					<div class="content-ser">
+						{{tine+1}}
+					</div>
+					<div class="content-data">
+					{{vi}}
+					</div>
+					<div class="btn1" @click="remove(tine)">x</div>
+					<div class="content-day">
+						{{daty[tine]}}
+					</div>
+				</div>
+			</div>
+			<div class='content-base' >
+				<div class='content-base-left' v-if="note.length!=0">共 {{sum}} 条信息</div>
+				<div class="content-base-right" @click="cls()"> 清除</div>
+			</div>
+	</div>
+	<div class="base1" ></div>
+	<div class="base2"></div>
+	<div class="base3"></div>
+	
+	
+	
+	
+	
+	<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+	  <!--小帅哥： https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json-->
+	  <!--萌娘：https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json-->
+	  <!--小可爱（女）：https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json-->
+	  <!--小可爱（男）：https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json-->
+	  <!--初音：https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json-->
+	   <!-- 上边的不同链接显示的是不同的小人，这个可以根据需要来选择 下边的初始化部分，可以修改宽高来修改小人的大小，或者是鼠标移动到小人上的透明度，也可以修改小人在页面出现的位置。 -->
+	  <script>
+	    /*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
+	    L2Dwidget.init({ "model": { jsonPath:
+	          "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
+	        "scale": 1 }, "display": { "position": "right", "width": 110, "height": 150,
+	        "hOffset": 0, "vOffset": -20 }, "mobile": { "show": true, "scale": 0.5 },
+	      "react": { "opacityDefault": 0.8, "opacityOnHover": 0.1 } });
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	<script>
+	
+	var app = new Vue({
+		el:".input1",
+		data:{
+			note:[
+				"吃饭饭",
+				"睡觉觉",
+				"做作业",
+			],
+			daty:["12:10","18:50","07:24"],
+			sum:3,
+			inputvalue:""
+		},
+		methods:{
+			cls:function(){
+				console.log("cls");
+				this.note=[];
+				this.sum=0;
+			},
+			add:function(){
+				var time = new Date();
+				this.sum++
+				this.note.push(this.inputvalue);
+				this.daty.push(time.getHours()+':'+ time.getMinutes())
+				this.inputvalue=null;
+			},
+			remove:function(num){
+				console.log("删除");
+				this.sum--;
+				this.note.splice(num,1);
+				this.daty.splice(num,1);
+			}
+		}
+	})
+	
+	</script>
+
+	</body>
+</html>
+
