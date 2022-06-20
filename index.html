@@ -290,7 +290,13 @@
                     this.note.splice(num, 1);
                     this.daty.splice(num, 1);
                     this.data = this.data();
-                    window.localStorage.setItem("note", JSON.stringify(this));
+                    var detad = {
+                        note: this.note,
+                        daty: this.daty,
+                        sum: this.sum,
+                        inputvalue: "",
+                    };
+                    window.localStorage.setItem("note", JSON.stringify(detad));
                 }
             }
         });
