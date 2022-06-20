@@ -234,8 +234,9 @@
 
     <script>
         var data_note = window.localStorage.getItem("note");
+        console.log(data_note);
         if (data_note == null) {
-            var data_note = {
+            data_note = {
                 note: ["吃饭饭",
                     "睡觉觉",
                     "做作业",
@@ -244,7 +245,9 @@
                 sum: 3,
                 inputvalue: "",
             };
+            window.localStorage.setItem("note", JSON.stringify(data_note));
         }
+        data_note = window.localStorage.getItem("note");
         data_note = JSON.parse(data_note);
         console.log(data_note);
         //console.log(data_note[0]);
@@ -289,7 +292,6 @@
                     this.sum--;
                     this.note.splice(num, 1);
                     this.daty.splice(num, 1);
-                    this.data = this.data();
                     var detad = {
                         note: this.note,
                         daty: this.daty,
