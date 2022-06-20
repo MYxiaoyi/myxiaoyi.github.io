@@ -271,6 +271,13 @@
                     console.log("cls");
                     this.note = [];
                     this.sum = 0;
+                    var detad = {
+                        note: this.note,
+                        daty: this.daty,
+                        sum: this.sum,
+                        inputvalue: "",
+                    };
+                    window.localStorage.setItem("note", JSON.stringify(detad));
                 },
                 add: function() {
                     var time = new Date();
