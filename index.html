@@ -132,6 +132,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -165,6 +166,8 @@
         </div>
     </nav>
 
+
+
     <div class="input1">
         <input class="input" type="text" placeholder="记录生活" v-model="inputvalue" @keyup.enter="add()" />
         <div class='content' v-for="(vi,tine) in note">
@@ -189,8 +192,6 @@
     <div class="base1"></div>
     <div class="base2"></div>
     <div class="base3"></div>
-
-
 
 
 
@@ -237,17 +238,15 @@
         console.log(data_note);
         if (data_note == null) {
             data_note = {
-                note: ["吃饭饭",
-                    "睡觉觉",
-                    "做作业",
-                ],
-                daty: ["12:10", "18:50", "07:24"],
-                sum: 3,
+                note: [],
+                daty: [],
+                sum: 0,
                 inputvalue: "",
             };
             window.localStorage.setItem("note", JSON.stringify(data_note));
+            data_note = window.localStorage.getItem("note");
         }
-        data_note = window.localStorage.getItem("note");
+
         data_note = JSON.parse(data_note);
         console.log(data_note);
         //console.log(data_note[0]);
